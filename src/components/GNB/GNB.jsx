@@ -1,40 +1,88 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
-const Button = styled.button`
-    background: #000;
-    padding: 10px;
-    font-size: 24px;
-    color: #fff;
-    background: ${props => props.color || 'blue'};
-    ${props => props.ddd && css`
-        background: purple;
-    `}
-`;
-
 const GnbElement = styled.div`
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    /* height: 50px; */
-    /* height: ${props => props.animateHide > 100 ? '200px' : '50px' || '50px'}; */
-    /* height: ${props => props.animateHide}; */
-    height: 50px;
     z-index: 10;
-    background: rgba(0,0,0,0.2);
+    border-bottom: 1px solid #ebebeb;
+    background: #fff;
     transition: 0.5s;
+    will-change: contents;
     ${props => props.animateHide && css`
-        height: 100px;
+        transform: translateY(-60px);
     `}
 `;
+
+const ButtonArea = styled.div`
+    height: 70px;
+`;
+
+const SearchArea = styled.div`
+    overflow: hidden;
+    height: 60px;
+    padding: 16px 20px 0 20px;
+    box-sizing: border-box;
+`;
+
+const SearchForm = styled.div`
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    height: 44px;
+    border: 1px solid #E6E6E7;
+    border-radius: 44px;
+    background: #f2f2f2;
+    box-sizing: border-box;
+`;
+
+const SearchButton = styled.button`
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.6);
+`;
+
+const SearchInput = styled.input`
+    border: 0;
+    background: transparent;
+    flex: 1;
+    height: 20px;
+    font-size: 15px;
+    line-height: 15px;
+    color: rgba(0,0,0,0.87);
+    &:focus {
+        outline: 1px solid yellow;
+    }
+`;
+
+const ButtonScrollArea = styled.div`
+    height: 100px;
+    padding: 12px 20px 0 20px;
+`;
+
+const ButtonFilter = styled.button`
+    font-size: 14px;
+    height: 42px;
+    margin-right: 8px;
+    padding: 11px 15px;
+    border: 1px solid rgba(0,0,0,0.34);
+    border-radius: 42px;
+    background: transparent;
+    font-size: 14px;
+    color: rgba(0,0,0,0.72);
+`;
+
 
 const useScroll = () => {
     const [scrollValueY, setScrollValueY] = useState(false);
 
     const onScroll = () => {
         let windowScrollY = window.scrollY;
-        if (windowScrollY > 100) {
+        if (windowScrollY > 200) {
             setScrollValueY(true);
         } else {
             setScrollValueY(false);
@@ -51,6 +99,13 @@ const useScroll = () => {
 const GNB = () => {
 
     const [buttonValue, setButtonValue] = useState(false);
+    const dummy = {
+        buttons: [
+            {name: '날짜'},
+            {name: '인원'},
+            {name: '출장'},
+        ]
+    }
 
     const scrollValueY = useScroll();
 
@@ -61,10 +116,24 @@ const GNB = () => {
     return (
         <div style={{ height: '5000px' }}>
 
-
-
             <GnbElement animateHide={scrollValueY}>
-                <p>Y : {scrollValueY}</p>
+                <SearchArea>
+                    <SearchForm>
+                        <SearchButton>&lt;</SearchButton>
+                        <SearchInput placeholder="숙소" />
+                    </SearchForm>
+                </SearchArea>
+                <ButtonArea>
+                    <ButtonScrollArea>
+                        {dummy.buttons.map((item, index) => {
+                            return (
+                                <ButtonFilter key={index}>
+                                    {item.name}
+                                </ButtonFilter>
+                            )
+                        })}
+                    </ButtonScrollArea>
+                </ButtonArea>
             </GnbElement>
 
             {/*<Button ddd={buttonValue}>버튼</Button>*/}

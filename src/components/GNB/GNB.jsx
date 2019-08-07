@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled, { css } from 'styled-components';
 
 const GnbElement = styled.div`
@@ -9,7 +9,7 @@ const GnbElement = styled.div`
     z-index: 10;
     border-bottom: 1px solid #ebebeb;
     background: #fff;
-    transition: 0.5s;
+    transition: 0.35s;
     will-change: contents;
     ${props => props.animateHide && css`
         transform: translateY(-60px);
@@ -44,6 +44,9 @@ const SearchButton = styled.button`
     font-size: 16px;
     font-weight: bold;
     color: rgba(0,0,0,0.6);
+    background: transparent;
+    border: 0;
+    appearance: none;
 `;
 
 const SearchInput = styled.input`
@@ -76,22 +79,26 @@ const ButtonFilter = styled.button`
     color: rgba(0,0,0,0.72);
 `;
 
-
 const useScroll = () => {
     const [scrollValueY, setScrollValueY] = useState(false);
 
-    const onScroll = () => {
+    const onScroll = useCallback(() => {
         let windowScrollY = window.scrollY;
-        if (windowScrollY > 200) {
+        if (windowScrollY > 500) {
             setScrollValueY(true);
         } else {
             setScrollValueY(false);
         }
-    }
+    },[]);
+
     useEffect(() => {
         window.addEventListener("scroll", onScroll);
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
+        console.log('effect');
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            console.log('cleanup');
+        }
+    },[onScroll]);
 
     return scrollValueY;
 }
@@ -99,6 +106,7 @@ const useScroll = () => {
 const GNB = () => {
 
     const [buttonValue, setButtonValue] = useState(false);
+
     const dummy = {
         buttons: [
             {name: '날짜'},
@@ -114,8 +122,7 @@ const GNB = () => {
     }
 
     return (
-        <div style={{ height: '5000px' }}>
-
+        <div>
             <GnbElement animateHide={scrollValueY}>
                 <SearchArea>
                     <SearchForm>
@@ -123,6 +130,9 @@ const GNB = () => {
                         <SearchInput placeholder="숙소" />
                     </SearchForm>
                 </SearchArea>
+                
+                
+                
                 <ButtonArea>
                     <ButtonScrollArea>
                         {dummy.buttons.map((item, index) => {
@@ -134,7 +144,10 @@ const GNB = () => {
                         })}
                     </ButtonScrollArea>
                 </ButtonArea>
+                
             </GnbElement>
+
+           
 
             {/*<Button ddd={buttonValue}>버튼</Button>*/}
             {/*<Button onClick={onChangeButton}>변경버튼</Button>*/}

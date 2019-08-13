@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import styled, { css } from 'styled-components';
 
 const GnbElement = styled.div`
@@ -29,6 +29,7 @@ const SearchArea = styled.div`
 
 const SearchForm = styled.div`
     display: flex;
+    position: relative;
     align-items: center;
     padding-right: 20px;
     height: 44px;
@@ -79,6 +80,23 @@ const ButtonFilter = styled.button`
     color: rgba(0,0,0,0.72);
 `;
 
+const SearchResetButton = styled.button`
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: transparent;
+    width: 48px;
+    height: 100%;
+    font-size: 14px;
+    color: rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: 0.4s;
+    ${props => props.animateFocus && css`
+        opacity: 1;
+    `}
+`;
+
 const useScroll = () => {
     const [scrollValueY, setScrollValueY] = useState(false);
 
@@ -103,9 +121,36 @@ const useScroll = () => {
     return scrollValueY;
 }
 
+const useClick = onClick => {
+    const element = useRef();
+}
+
+// const useClick = onClick => {
+//     if (typeof onClick !== 'function') return;
+
+//     const element = useRef();
+
+//     useEffect(() => {
+//         const elementCurrent = element.current;
+//         if (elementCurrent) {
+//             elementCurrent.addEventListener('click', onClick);
+//         }
+//         return () => {
+//             if (elementCurrent) {
+//                 elementCurrent.removeEventListener('click', onClick);
+//             }
+//         }
+//     },[])
+
+//     return element;
+// }
+
 const GNB = () => {
 
     const [buttonValue, setButtonValue] = useState(false);
+    const [searchIsFocused, setSearchIsFocused] = useState(false);
+
+    // const searchInput = useRef();
 
     const dummy = {
         buttons: [
@@ -121,18 +166,41 @@ const GNB = () => {
         setButtonValue(!buttonValue);
     }
 
+    // 예를 실행
+    const handleSearchIsFocused = () => {
+        // setSearchIsFocused(true);
+        // console.log('11');
+        // refSearchResetButton.style.display = 'block';
+        // $('셀렉터').css('border','1px solid red');
+        // console.log(refSearchResetButton.current.);
+        refSearchResetButton.current.style.opacity = "1";
+    }
+
+    const handleSearchIsUnFocused = () => {
+        setSearchIsFocused(false);
+    }
+
+    const refSearchResetButton = useRef();
+
     return (
         <div>
             <GnbElement animateHide={scrollValueY}>
                 <SearchArea>
                     <SearchForm>
                         <SearchButton>&lt;</SearchButton>
-                        <SearchInput placeholder="숙소" />
+                        <SearchInput
+                            onFocus={handleSearchIsFocused}
+                            // onBlur={handleSearchIsUnFocused}
+                            placeholder="숙소"
+                        />
+                        <SearchResetButton
+                            ref={refSearchResetButton}
+                            // animateFocus={searchIsFocused}
+                            // onClick={handleResetSearchInput}
+                        >X</SearchResetButton>
                     </SearchForm>
                 </SearchArea>
-                
-                
-                
+
                 <ButtonArea>
                     <ButtonScrollArea>
                         {dummy.buttons.map((item, index) => {

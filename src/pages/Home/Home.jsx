@@ -1,6 +1,7 @@
 import React from 'react'
 import GNB from '../../components/GNB';
 import styled, { css } from 'styled-components';
+import SwiperMainItem from '../../components/SwiperMainItem'
 // import StyledComponent from '../../components/StyledComponentTest';
 
 const TopInfoArea = styled.div`
@@ -42,6 +43,7 @@ const TitleArea = styled(TitleStyle)`
 `;
 
 const Home = () => {
+
     return (
         <div style={{ height: '5000px'}}>
             <GNB />
@@ -56,12 +58,13 @@ const Home = () => {
                 세계를 여행해보세요</h2>
             </TitleArea>
 
+            <SwiperMainItem />
+
             <TitleArea>
                 <h2>2222과 함께 전<br/>
                 세계를 여행해보세요</h2>
                 <strong>테스트222</strong>
             </TitleArea>
-
 
             <TitleArea>
                 <h2>2222과 함께 전<br/>

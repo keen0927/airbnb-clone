@@ -36,21 +36,34 @@ const SwiperMainItem = () => {
                         <span>프랑스</span>
                     </div>
                 </SliderItem>
-                <div>
-                    <h3>2</h3>
-                </div>
-                <div>
-                    <h3>3</h3>
-                </div>
-                <div>
-                    <h3>4</h3>
-                </div>
-                <div>
-                    <h3>5</h3>
-                </div>
-                <div>
-                    <h3>6</h3>
-                </div>
+                <SliderItem>
+                    <figure></figure>
+                    <div>
+                        <strong>파리</strong>
+                        <span>프랑스</span>
+                    </div>
+                </SliderItem>
+                <SliderItem>
+                    <figure></figure>
+                    <div>
+                        <strong>파리</strong>
+                        <span>프랑스</span>
+                    </div>
+                </SliderItem>
+                <SliderItem>
+                    <figure></figure>
+                    <div>
+                        <strong>파리</strong>
+                        <span>프랑스</span>
+                    </div>
+                </SliderItem>
+                <SliderItem>
+                    <figure></figure>
+                    <div>
+                        <strong>파리</strong>
+                        <span>프랑스</span>
+                    </div>
+                </SliderItem>                                                
             </Slider>
 
         </>

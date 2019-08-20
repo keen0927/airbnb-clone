@@ -58,14 +58,14 @@ const Home = () => {
                 세계를 여행해보세요</h2>
             </TitleArea>
 
-            <SwiperMainItem />
-
             <TitleArea>
                 <h2>2222과 함께 전<br/>
                 세계를 여행해보세요</h2>
                 <strong>테스트222</strong>
             </TitleArea>
-
+            
+            <SwiperMainItem />
+            
             <TitleArea>
                 <h2>2222과 함께 전<br/>
                 세계를 여행해보세요</h2>

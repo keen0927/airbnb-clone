@@ -11,6 +11,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+  #root {
+    min-width: 320px;
+  }
 `;
 
 const App = () => {

@@ -58,9 +58,9 @@ const SwiperMainItem = () => {
         slidesToScroll: 1
     };
 
-    const testElement = dummy.data.map((n) => {
+    const testElement = dummy.data.map((n, index) => {
         return (
-            <SliderItem>
+            <SliderItem key={index}>
                 <figure style={{backgroundImage: 'url('+n.path+')'}}></figure>
                 <div>
                     <strong>{n.national}</strong>

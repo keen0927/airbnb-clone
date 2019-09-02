@@ -1,7 +1,8 @@
 import React from 'react'
 import GNB from '../../components/GNB';
 import styled, { css } from 'styled-components';
-import SwiperMainItem from '../../components/SwiperMainItem'
+import SwiperMainItem from '../../components/SwiperMainItem';
+import { useDispatch, useSelector } from 'react-redux';
 // import StyledComponent from '../../components/StyledComponentTest';
 
 const TopInfoArea = styled.div`
@@ -43,6 +44,10 @@ const TitleArea = styled(TitleStyle)`
 `;
 
 const Home = () => {
+
+    const { isLoggedin } = useSelector((state) => state.user);
+
+    console.log(isLoggedin);
 
     return (
         <div style={{ height: '5000px'}}>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import Slider from 'react-slick';
+import axios from 'axios';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -18,10 +19,16 @@ const SliderItem = styled.div`
     }
 `;
 
-
 const SwiperMainItem = () => {
 
     // const [area, setArea] = useState('');
+
+    useEffect(() => {
+        // axios.get('../dummy/home.json')
+        // .then(res => {
+        //     console.log(res)  
+        // });
+    },[]);
 
     const dummy = {
         data: [

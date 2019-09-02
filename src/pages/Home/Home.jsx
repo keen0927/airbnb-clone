@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import GNB from '../../components/GNB';
 import styled, { css } from 'styled-components';
 import SwiperMainItem from '../../components/SwiperMainItem';
 import { useDispatch, useSelector } from 'react-redux';
 // import StyledComponent from '../../components/StyledComponentTest';
+
+import { login } from '../../store/user';
 
 const TopInfoArea = styled.div`
 
@@ -43,11 +45,23 @@ const TitleArea = styled(TitleStyle)`
     }
 `;
 
+const UserState = styled.div`
+    border: 1px solid red;
+`;
+
 const Home = () => {
 
     const { isLoggedin } = useSelector((state) => state.user);
 
+    const dispatch = useDispatch();
+
     console.log(isLoggedin);
+
+    const handleLogin = useCallback(() => {
+        dispatch(login);
+    },[]);
+
+
 
     return (
         <div style={{ height: '5000px'}}>
@@ -57,6 +71,10 @@ const Home = () => {
             <TopInfoArea>
                 여행 날짜와 게스트 인원수를 입력하면 1박당 총 요금을 확인할 수 있습니다. 관광세가 추가로 부과될 수 있습니다.
             </TopInfoArea>
+
+            <button type="button" onClick={handleLogin}>버튼스</button>
+
+            {isLoggedin && <UserState>유저 데이터</UserState>}
 
             <TitleArea>
                 <h2>과 함께 전<br/>

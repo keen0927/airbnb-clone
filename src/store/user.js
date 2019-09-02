@@ -1,10 +1,8 @@
 const LOG_IN = 'LOG_IN';
 const LOG_OUT = 'LOG_OUT';
 
-export const login = () => {
-    return {
-        type: LOG_IN
-    }
+export const login = {
+    type: LOG_IN
 }
 
 export const logout = () => {

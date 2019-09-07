@@ -2,7 +2,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-    html {
-        border: 1px solid red;
+    html,body {
+        margin: 0;
+        padding: 0;
     }
+    #root {
+        min-width: 320px;
+    }
+
 `;

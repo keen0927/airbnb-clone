@@ -59,9 +59,7 @@ const Home = () => {
         dispatch(loginAction);
     }, []);
 
-    const { testNick } = useSelector(state => state.user);
-
-    
+    // const { testNick } = useSelector(state => state.user);
 
     return (
         <div style={{ height: '5000px'}}>
@@ -70,8 +68,8 @@ const Home = () => {
 
             <TopInfoArea>
                 여행 날짜와 게스트 인원수를 입력하면 1박당 총 요금을 확인할 수 있습니다. 관광세가 추가로 부과될 수 있습니다.
-                <button type="button" onClick={testDispatchSaga}>버튼</button>
-                {testNick}
+                {/* <button type="button" onClick={testDispatchSaga}>버튼</button>
+                {testNick} */}
             </TopInfoArea>
 
             <TitleArea>
@@ -79,12 +77,10 @@ const Home = () => {
                 세계를 여행해보세요</h2>
             </TitleArea>
 
-            <SwiperMainItem />
-
             <TitleArea>
-                <h2>2222과 함께 전<br/>
-                세계를 여행해보세요</h2>
-                <strong>테스트222</strong>
+                <h2>최고 평점을 받은 숙소</h2>
+                <strong>최고의 평점을 받은 전 세계의 숙소를 둘러보세요.</strong>
+                <SwiperMainItem />
             </TitleArea>
 
             <TitleArea>

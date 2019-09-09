@@ -6,14 +6,30 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 const SliderItem = styled.div`
-    border: 1px solid #000;
+    
+    div {
+        margin-right: 20px;
+    }
 
     figure {
         width: 100%;
-        height: 77px;
+        height: auto;
         margin: 0;
-        background-image: url('https://a0.muscache.com/4ea/air/v2/pictures/e3b8d12c-07dc-4f3d-9cdc-c79e0a442dd4.jpg?t=r:w375-h250-sfit,e:fjpg-c80');
-        background-size: cover;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    span {
+        font-size: 10px;
+        color: rgba(0,0,0,0.68);
+    }
+    
+    p {
+        margin: 0;
+        font-size: 13px;
     }
 `;
 
@@ -22,7 +38,7 @@ const SwiperMainItem = () => {
 
     const settings = {
         speed: 500,
-        slidesToShow: 2.2,
+        slidesToShow: 2,
         slidesToScroll: 1
     };
 
@@ -30,42 +46,51 @@ const SwiperMainItem = () => {
         <>
             <Slider {...settings}>
                 <SliderItem>
-                    <figure></figure>
                     <div>
-                        <strong>파리</strong>
-                        <span>프랑스</span>
+                        <figure>
+                            <img src="https://a0.muscache.com/4ea/air/v2/pictures/e3b8d12c-07dc-4f3d-9cdc-c79e0a442dd4.jpg?t=r:w375-h250-sfit,e:fjpg-c80" alt=""/>
+                        </figure>
+                        <span>집 전체 - 오스투니</span>
+                        <p>I SETTE CONI - TRULLO EDERA</p>
                     </div>
                 </SliderItem>
                 <SliderItem>
-                    <figure></figure>
-                    <div>
-                        <strong>파리</strong>
-                        <span>프랑스</span>
+                                        <div>
+                        <figure>
+                            <img src="https://a0.muscache.com/4ea/air/v2/pictures/e3b8d12c-07dc-4f3d-9cdc-c79e0a442dd4.jpg?t=r:w375-h250-sfit,e:fjpg-c80" alt=""/>
+                        </figure>
+                        <span>집 전체 - 오스투니</span>
+                        <p>I SETTE CONI - TRULLO EDERA</p>
                     </div>
                 </SliderItem>
                 <SliderItem>
-                    <figure></figure>
-                    <div>
-                        <strong>파리</strong>
-                        <span>프랑스</span>
+                                        <div>
+                        <figure>
+                            <img src="https://a0.muscache.com/4ea/air/v2/pictures/e3b8d12c-07dc-4f3d-9cdc-c79e0a442dd4.jpg?t=r:w375-h250-sfit,e:fjpg-c80" alt=""/>
+                        </figure>
+                        <span>집 전체 - 오스투니</span>
+                        <p>I SETTE CONI - TRULLO EDERA</p>
                     </div>
                 </SliderItem>
                 <SliderItem>
-                    <figure></figure>
-                    <div>
-                        <strong>파리</strong>
-                        <span>프랑스</span>
+                                        <div>
+                        <figure>
+                            <img src="https://a0.muscache.com/4ea/air/v2/pictures/e3b8d12c-07dc-4f3d-9cdc-c79e0a442dd4.jpg?t=r:w375-h250-sfit,e:fjpg-c80" alt=""/>
+                        </figure>
+                        <span>집 전체 - 오스투니</span>
+                        <p>I SETTE CONI - TRULLO EDERA</p>
                     </div>
                 </SliderItem>
                 <SliderItem>
-                    <figure></figure>
-                    <div>
-                        <strong>파리</strong>
-                        <span>프랑스</span>
+                                        <div>
+                        <figure>
+                            <img src="https://a0.muscache.com/4ea/air/v2/pictures/e3b8d12c-07dc-4f3d-9cdc-c79e0a442dd4.jpg?t=r:w375-h250-sfit,e:fjpg-c80" alt=""/>
+                        </figure>
+                        <span>집 전체 - 오스투니</span>
+                        <p>I SETTE CONI - TRULLO EDERA</p>
                     </div>
                 </SliderItem>                                                
             </Slider>
-
         </>
     )
 }

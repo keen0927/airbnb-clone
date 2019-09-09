@@ -18,11 +18,11 @@ const TopInfoArea = styled.div`
     line-height: 1.7;
 `;
 
-const TitleStyle = styled.div`
+const TitleArea = styled.div`
     margin-bottom: 16px;
-    padding: 35px 20px 15px 20px;
+    padding: 35px 0 15px 0;
     h2 {
-        padding: 0;
+        padding: 0 20px;
         margin: 0;
         font-size: 22px;
         line-height: 1.3;
@@ -32,19 +32,12 @@ const TitleStyle = styled.div`
     }
     strong {
         display: block;
-        padding-top: 7px;
+        padding: 5px 20px 15px 20px;
         font-size: 16px;
         font-weight: normal;
         color: rgba(0,0,0,0.48);
     }
 `;
-
-const TitleArea = styled(TitleStyle)`
-    h1 {
-
-    }
-`;
-
 
 const Home = () => {
 

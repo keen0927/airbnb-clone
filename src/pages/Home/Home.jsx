@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 import SwiperMainItem from '../../components/SwiperMainItem';
 import { loginAction } from '../../reducers/user';
-
-// import StyledComponent from '../../components/StyledComponentTest';
+import HomeScrollComponent from '../../components/HomeScrollComponent';
 
 const TopInfoArea = styled.div`
 
@@ -41,33 +40,18 @@ const TitleArea = styled.div`
 
 const Home = () => {
 
-    const dispatch = useDispatch();
-
-    const testDispatchSaga = () => {
-        console.log('디스패치 액션 시작')
-        dispatch(loginAction);
-    }
-
-    useEffect(() => {
-        dispatch(loginAction);
-    }, []);
-
-    // const { testNick } = useSelector(state => state.user);
-
     return (
-        <div style={{ height: '5000px'}}>
+        <div>
             <GNB />
-            {/*<StyledComponent />*/}
 
             <TopInfoArea>
                 여행 날짜와 게스트 인원수를 입력하면 1박당 총 요금을 확인할 수 있습니다. 관광세가 추가로 부과될 수 있습니다.
-                {/* <button type="button" onClick={testDispatchSaga}>버튼</button>
-                {testNick} */}
             </TopInfoArea>
 
             <TitleArea>
-                <h2>과 함께 전<br/>
+                <h2>에어비앤비와 함께 전<br/>
                 세계를 여행해보세요</h2>
+                <HomeScrollComponent />
             </TitleArea>
 
             <TitleArea>

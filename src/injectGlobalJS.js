@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
     }
     #root {
+        overflow: hidden;
         min-width: 320px;
     }
 

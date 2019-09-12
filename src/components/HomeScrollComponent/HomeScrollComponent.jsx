@@ -30,10 +30,35 @@ white-space: nowrap;
     }
 `
 
+const LinkItemThumbnail = styled.div `
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 4px;
+    width: 140px;
+    font-size: 13px;
+    div {
+        height: 50px;
+    }
+    img {
+        width: 100%;
+    }
+    b {
+        display: block;
+    }
+`
+
 const HomeScrollComponent = () => {
     return (
         <>
-            <HomeScrollWrap>
+            <LinkItemThumbnail>
+                <picture>
+                    <img src="https://a0.muscache.com/4ea/air/v2/pictures/e3b8d12c-07dc-4f3d-9cdc-c79e0a442dd4.jpg?t=r:w375-h250-sfit,e:fjpg-c80" alt="" />
+                </picture>
+                <div>
+                    <b>파리</b>
+                    프랑스
+                </div>
+            </LinkItemThumbnail>
+            {/* <HomeScrollWrap>
                 <HomeScrollXWrap>
                     <HomeScrollX>
                         <HomeScrollUL>
@@ -67,7 +92,7 @@ const HomeScrollComponent = () => {
                     </HomeScrollX>
                 </HomeScrollXWrap>
             
-            </HomeScrollWrap>
+            </HomeScrollWrap> */}
 
         </>
     )

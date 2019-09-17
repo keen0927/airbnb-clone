@@ -3,7 +3,7 @@ import GNB from '../../components/GNB';
 import { useDispatch, useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
 import SwiperMainItem from '../../components/SwiperMainItem';
-import { loginAction } from '../../reducers/user';
+import { LOG_IN_REQUEST } from '../../reducers/user';
 import HomeScrollComponent from '../../components/HomeScrollComponent';
 
 const TopInfoArea = styled.div`
@@ -40,12 +40,25 @@ const TitleArea = styled.div`
 
 const Home = () => {
 
+    const dispatch = useDispatch();
+
+    const { isLoggedin } = useSelector(state => state.user);
+
+    const handleLogin = () => {
+        dispatch({
+            type: LOG_IN_REQUEST
+        })
+    }
+
     return (
         <div>
             <GNB />
 
             <TopInfoArea>
                 여행 날짜와 게스트 인원수를 입력하면 1박당 총 요금을 확인할 수 있습니다. 관광세가 추가로 부과될 수 있습니다.
+
+                <button type="button" onClick={handleLogin}>로그인</button>
+                {isLoggedin ? "로그인 트루" : "로그인 펄스"}
             </TopInfoArea>
 
             <TitleArea>

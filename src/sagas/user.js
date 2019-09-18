@@ -8,10 +8,15 @@ function* login() {
     try {
         console.log('2');
         yield delay(2000);
-        put(LOG_IN_SUCCESS);
-    } catch (error) {
         console.log('3');
-        put(LOG_IN_FAILURE);
+        yield put({
+            type: 'LOG_IN_SUCCESS'
+        });
+        console.log('4');
+        
+    } catch (error) {
+        // console.log('3');
+        // put(LOG_IN_FAILURE);
     }
 }
 

@@ -42,7 +42,7 @@ const Home = () => {
 
     const dispatch = useDispatch();
 
-    const { isLoggedin } = useSelector(state => state.user);
+    const { isLoggedIn, isLoggingIn, nickName } = useSelector(state => state.user);
 
     const handleLogin = () => {
         dispatch({
@@ -58,8 +58,11 @@ const Home = () => {
                 여행 날짜와 게스트 인원수를 입력하면 1박당 총 요금을 확인할 수 있습니다. 관광세가 추가로 부과될 수 있습니다.
 
                 <button type="button" onClick={handleLogin}>로그인</button>
-                {isLoggedin ? "로그인 시도중" : ""}<br/>
-                {isLoggedin ? "로그인 트루" : "로그인 펄스"}
+                {nickName}
+                {/* {isLoggingIn ? "로그인 시도중" : ""}<br/>
+                {isLoggedin ? "로그인 트루" : "로그인 펄스"} */}
+                {isLoggingIn && <div>로그인시도중이양</div>}
+                {isLoggedIn && <div>로그인했옹</div>}
             </TopInfoArea>
 
             <TitleArea>

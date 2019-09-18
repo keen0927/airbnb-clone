@@ -1,15 +1,18 @@
-import { take, all, takeEvery, fork } from 'redux-saga/effects';
-import { LOG_IN_REQUEST } from '../reducers/user';
+import { take, all, takeEvery, fork, delay, put } from 'redux-saga/effects';
+import { LOG_IN_REQUEST, LOG_IN_SUCCESS, LOG_IN_FAILURE } from '../reducers/user';
 
 
 
 function* login() {
-    console.log('LOG_IN_REQUEST1');
-    yield take(LOG_IN_REQUEST);
-    console.log('LOG_IN_REQUEST2');
-    // put {
-
-    // }
+    console.log('1');
+    try {
+        console.log('2');
+        yield delay(2000);
+        put(LOG_IN_SUCCESS);
+    } catch (error) {
+        console.log('3');
+        put(LOG_IN_FAILURE);
+    }
 }
 
 function* watchLogin() {
